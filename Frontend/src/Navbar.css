@@ -1,26 +1,76 @@
 .custom{
 
-    background-color:rgb(136, 136, 136,.2) !important;
+    background-color:#1a1a1a !important;
+    color:#d3d3d3 !important ;
+}
+
+a {
+    color:#d3d3d3 !important ;
+    font-size: larger !important;
+}
+
+.a1:hover{
+
+    border: 1px solid #cfb579;
+    border-radius: .5rem;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
 }
 
 .navbar-toggler{
 
+    color:#d3d3d3 !important ;
     text-decoration: none !important;
     border: 0rem !important;
     height: 2.5rem !important;
 }
 
 .navbar-toggler:focus {
+    color:#d3d3d3 !important ;
     outline: none !important;
     box-shadow: none !important;
 }
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 2rem; /* Width of the icon */
+    height: 1rem;  /* Height to fit three lines */
+    position: relative; /* For positioning lines */
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after,
+.navbar-toggler-icon span {
+    content: '';
+    display: block;
+    background-color: #d3d3d3; /* Line color */
+    height: 2px; /* Thickness of each line */
+    width: 100%; /* Full width */
+    position: absolute;
+    left: 0;
+}
+
+.navbar-toggler-icon::before {
+    top: 0; /* Top line */
+}
+
+.navbar-toggler-icon span {
+    top: 50%; /* Middle line */
+    transform: translateY(-50%);
+}
+
+.navbar-toggler-icon::after {
+    bottom: 0; /* Bottom line */
+}
+
+
 
 
 @media (max-width: 992px) {
     
 
    .navbar-collapse{
-    background-color:rgb(136, 136, 136,.2) !important;
+    background-color:#1a1a1a !important;
    }
 
     .nav-link {
