@@ -1,0 +1,39 @@
+.custom{
+
+    background-color:rgb(136, 136, 136,.2) !important;
+}
+
+.navbar-toggler{
+
+    text-decoration: none !important;
+    border: 0rem !important;
+    height: 2.5rem !important;
+}
+
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+@media (max-width: 992px) {
+    
+
+   .navbar-collapse{
+    background-color:rgb(136, 136, 136,.2) !important;
+   }
+
+    .nav-link {
+        padding: 0.5rem 0.8rem !important; /* Adjust spacing inside links */
+        margin: 0 !important; /* Remove any link margin */
+        text-align: left; /* Align text to left */
+        width: 100%; /* Ensure links take full width */
+        display: block; /* Full block for the clickable area */
+    }
+
+    .container-fluid {
+        padding: 0 !important; /* Remove container padding */
+    }
+}
+
+
