@@ -1,12 +1,21 @@
 .custom{
 
     background-color:#1a1a1a !important;
-    color:#d3d3d3 !important ;
+    color:rgb(211, 211, 211,.5) !important ;
 }
 
 a {
     color:#d3d3d3 !important ;
     font-size: larger !important;
+}
+
+.sa{
+
+    border: 1px solid #cfb579;
+    border-radius: .5rem;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+
 }
 
 .a1:hover{
