@@ -1,0 +1,44 @@
+.tile {
+  display: flex;
+  width: 100%;
+  height: 100%; /* You can adjust the height as needed */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tile-image {
+  flex: 1;
+  max-width: 50%;
+  padding: 50px; /* Added padding around the image */
+  box-sizing: border-box; /* Ensures padding does not affect the width */
+}
+
+.tile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tile-content {
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Stack the header and description vertically */
+  justify-content: center; /* Vertically center the content */
+}
+
+.tile-content h3 {
+  margin: 0;
+  font-size: 2rem; /* Increased size of the header */
+  font-weight: bold;
+  flex-grow: 1; /* Make the header grow to take available space */
+}
+
+.tile-content p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #555;
+  flex-grow: 1; /* Allow description to take available space */
+}

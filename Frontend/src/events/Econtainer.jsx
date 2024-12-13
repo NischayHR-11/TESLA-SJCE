@@ -6,8 +6,8 @@ function Econtainer({ eventId }) {
     const description = 'This is an example image' + eventId;
     
     return (
-        <div style={{ width: '100%', height: '50vh' }}>
-            <Tile image={imageUrl} desc={description} />
+        <div className='eventcontainer' style={{ width: '99%', height: '57vh', margin: '10px'}}>
+            <Tile imageSrc={imageUrl} descriptionText={description} headerText={eventId} tile={1}/>
         </div>
     );
 }
