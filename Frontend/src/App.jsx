@@ -1,5 +1,7 @@
 import Navbar from "./Navbar"
 import SplineViewer from "./Spline_Element"
+import EventsPage from './events/EventsPage.jsx'; // Events page component
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
 
@@ -9,7 +11,12 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
-      <SplineViewer sceneUrl={splineSceneUrl} />
+      {/* <SplineViewer sceneUrl={splineSceneUrl} /> */}
+      <Router>
+            <Routes>
+            <Route path="/events" element={<EventsPage />} /> 
+            </Routes>
+      </Router>
     </>
   )
 }

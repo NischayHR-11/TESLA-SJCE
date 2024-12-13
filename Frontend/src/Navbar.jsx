@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Navbar.css"
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Navbar() {
     return ( 
@@ -19,7 +20,7 @@ function Navbar() {
                     <a class="nav-link active" href="#">About</a>
                     </li>
                     <li class="nav-item a1" style={{marginRight:"5rem"}}>
-                    <a class="nav-link active" href="#">Events</a>
+                    <a className="nav-link active" href="/events" to="/events" onClick={() => handleNavigation('/events')}>Events</a>
                     </li>
                     <li class="nav-item a1" style={{marginRight:"5rem"}}>
                     <a class="nav-link active" href="#">Team</a>
