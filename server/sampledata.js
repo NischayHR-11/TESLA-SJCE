@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const Eventm = require('./eventm'); // Import the Event model
+const Eventm = require('./eventm'); // Corrected require path
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/tesla', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/tesla')
   .then(() => {
     console.log('Connected to MongoDB');
-    
+
     // Sample data
     const sampleEvent = new Eventm({
       name: 'Tesla Event',
