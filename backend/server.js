@@ -1,42 +1,59 @@
-require("dotenv").config();
 const express = require("express");
-const mongoose = require("mongoose");
 const cors = require("cors");
-
-const Session = require("./models/Session");
+const { MongoClient } = require("mongodb");
 
 const app = express();
-app.use(express.json());
-app.use(cors());
+const PORT = 5000;
 
-const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/sessionsDB";
+// MongoDB connection details
+const uri = "mongodb://localhost:27017"; // Change if using a remote database
+const dbName = "your_database"; // Replace with your actual database name
+const collectionName = "sessions"; // Collection name
 
-// Connect to MongoDB
-mongoose
-  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.error(err));
+app.use(cors()); // Enable CORS for frontend communication
+app.use(express.json()); // Enable JSON request body parsing
 
-// Route to add Tesla session
-app.post("/add-session", async (req, res) => {
+// Fetch all sessions from MongoDB
+app.get("/api/sessions", async (req, res) => {
+  const client = new MongoClient(uri);
   try {
-    const session = new Session(req.body);
-    await session.save();
-    res.status(201).json({ message: "Session added successfully", session });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-// Route to get all sessions
-app.get("/sessions", async (req, res) => {
-  try {
-    const sessions = await Session.find();
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection(collectionName);
+    const sessions = await collection.find({}).toArray();
     res.json(sessions);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Error fetching sessions:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  } finally {
+    await client.close();
   }
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.get("/api/events/:eventId", async (req, res) => {
+  const client = new MongoClient(uri);
+  try {
+      await client.connect();
+      const db = client.db(dbName);
+      const collection = db.collection(collectionName);
+      const event = await collection.findOne({ eventId: req.params.eventId });
+
+      if (!event) {
+          return res.status(404).json({ message: "Event not found" });
+      }
+
+      res.json(event);
+  } catch (error) {
+      console.error("Error fetching event:", error);
+      res.status(500).json({ message: "Internal Server Error" });
+  } finally {
+      await client.close();
+  }
+});
+
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+});

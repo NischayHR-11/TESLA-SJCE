@@ -18,15 +18,18 @@ function Econtainer({ eventId }) {
     return (
         <div className='eventcontainer' style={{ width: '99%', height: '57vh', margin: '10px'}}>
             {eventData ? (
-                eventData.events.map((session, index) => (
-                    <Tile 
-                        key={index}
-                        imageSrc="https://next-images.123rf.com/index/_next/image/?url=https://assets-cdn.123rf.com/index/static/assets/top-section-bg.jpeg&w=3840&q=75"
-                        descriptionText={session.description}
-                        headerText={session.title}
-                        tile={session.tile}
-                    />
-                ))
+                <>
+                    <h2>{eventData.header}</h2>
+                    {eventData.sessions?.map((session, index) => (
+                        <Tile 
+                            key={index}
+                            imageSrc="https://next-images.123rf.com/index/_next/image/?url=https://assets-cdn.123rf.com/index/static/assets/top-section-bg.jpeg&w=3840&q=75"
+                            descriptionText={session.description}
+                            headerText={session.title}
+                            tile={session.tile}
+                        />
+                    ))}
+                </>
             ) : (
                 <p>Loading event data...</p>
             )}
