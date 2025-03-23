@@ -14,7 +14,7 @@ function Navbar() {
                 <div class="collapse navbar-collapse mt-1" id="navbarNav" style={{width:"100%",color:"#ffffff"}}>
                 <ul class="navbar-nav ms-lg-auto me-lg-5">
                     <li class="nav-item a1" style={{marginRight:"5rem"}}>
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item a1" style={{marginRight:"5rem"}}>
                     <a class="nav-link active" href="#">About</a>
